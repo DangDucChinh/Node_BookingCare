@@ -1,0 +1,45 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background-color:#0071ba;
+    border: 1px solid greenyellow;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .sidebar-menu {
+        width: 100%;
+        border: 1px solid red;
+        background-color: bisque;
+        height: 100px;
+    }
+
+    .sidebar-links {
+        .link{
+            padding : 1rem 2rem 1rem 1rem;
+            border : 1px solid red;
+            text-decoration: none;
+            color : white;
+            border : 1px solid black;
+
+            i{
+                margin-right: 1rem;
+            }
+
+            
+        }
+
+        
+    }
+}
+
+.main {
+    margin-left: 250px;
+}
+
+.panigate{
+    border : 1px solid black;
+    background-color: aquamarine;
+}

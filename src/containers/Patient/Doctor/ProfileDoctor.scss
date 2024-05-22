@@ -1,0 +1,27 @@
+.intro-doctor{
+    display: flex;
+    justify-content: space-between;
+
+    .content-left{
+        width: 200px;
+        background : center center no-repeat;
+        width: 80px;
+        height: 80px; 
+        border-radius: 50%;
+    }
+    .content-right{
+        width: calc(100% - 80px);
+        display: flex;
+        flex-direction: column;
+        padding-left: 10px;
+
+        .up{
+            font-size: 20px;
+            font-weight: 900;
+        }
+    }
+}
+
+.view-detail-doctor > a{
+    text-decoration: none;
+}

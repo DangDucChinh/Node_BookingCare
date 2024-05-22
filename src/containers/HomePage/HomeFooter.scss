@@ -1,0 +1,86 @@
+.home-footer {
+    background-color: rgb(245, 245, 245);
+    width: 100%vw;
+    height: 380px;
+    padding-top: 28px;
+
+    .footer-up {
+        margin: 0 138px;
+        display: flex;
+        justify-content: space-evenly;
+        border-bottom: 2px solid rgb(159, 158, 157);
+        padding-bottom: 10px;
+
+        .footer-up_left {
+            width: 40%;
+
+            .footer-left_logo {
+
+                .logo {
+                    background: url('../../assets/images/bookingcare-2020.svg') no-repeat;
+                    height: 50px;
+                }
+            }
+
+            .footer-left_title {
+                font-weight: bold;
+            }
+        }
+
+        .footer-up_right {
+            width: 60%;
+            display: flex;
+
+            .footer-up_list {
+                font-family: sans-serif;
+                color: rgb(174, 225, 230);
+                width: 40%;
+
+                ul {
+                    li {
+                        margin-bottom: 7px;
+
+                        a {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+
+            .footer-up_decends {
+                width: 60%;
+            }
+        }
+    }
+
+    .footer-down {
+        background-color: rgb(84, 205, 236);
+        width: 100vw;
+        height: 100px;
+
+        .footer-down_content {
+            margin: 0 138px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            .footer-down_left {
+                width: 50%;
+                color: white !important;
+            }
+
+            .footer-down_right {
+                width: 50%;
+                display: flex;
+                padding: 5px;
+                justify-content: end;
+                background-color: rgb(84, 205, 236);
+                font-size: 32px;
+
+                i{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

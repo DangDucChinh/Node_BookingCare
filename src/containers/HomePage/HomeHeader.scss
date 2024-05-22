@@ -1,0 +1,208 @@
+.home-header-container {
+    height: 77px;
+    width: 100%;
+    padding: 0 20px;
+    top : 0;
+    z-index: 100;
+
+    .home-header-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        .left-content {
+            width: 25%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 30px;
+            // khi mà đặt display flex thì thuộc tính align-items: center sẽ quy định chúng ở trung tâm theo chiều dọc . 
+
+            i {
+                font-size: 24px;
+                color: grey;
+                cursor: pointer;
+                margin-left: 5px;
+            }
+
+            .header-logo {
+                background: url('../../assets/images/bookingcare-2020.svg') center center no-repeat;
+                height: 60%;
+                width: 60%;
+                margin-left: 10px;
+                cursor: pointer;
+            }
+        }
+
+        .center-content {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .child-content {
+                padding: 5px;
+                font-size: 11px;
+            }
+        }
+
+        .right-content {
+            width: 25%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .support {
+                padding-right: 30px;
+
+                i {
+                    font-size: 15px;
+                    color: #45c3d2;
+                }
+            }
+
+            .flag-vi {
+                cursor: pointer;
+                padding-right: 10px;
+                opacity: 0.1;
+
+                &.active {
+                    opacity: 1;
+                    color: orange;
+                }
+            }
+
+            .flag-vi:hover {
+                opacity: 1;
+            }
+
+            .flag-en {
+                cursor: pointer;
+                opacity: 0.1;
+
+                &.active {
+                    opacity: 1;
+                    color: orange;
+                }
+            }
+
+            .flag-en:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.home-header-background {
+    background-image: url('../../assets/images/bookingcare-cover-4.jpg');
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .home-header-banner {
+
+        // background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+        // background-repeat: no-repeat;
+        // background-position: center;
+        // background-size: cover;
+        // display: flex;
+        flex-direction: column;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.25),rgba(255, 255, 255, 0.1));
+        padding: 80px 0;
+        color: #333;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .content-up {
+            height: 50%;
+
+            .title-big {
+                text-align: center;
+                font-size: x-large;
+                color: white;
+                text-shadow: 1px 1px 1px #333;
+                padding-top: 120px;
+            }
+
+            .title-small {
+                font-size: x-large;
+                text-align: cce;
+                text-align: center;
+                text-shadow: 1px 1px 1px #333;
+                padding: 10px;
+            }
+
+            .search {
+                background-color: #f7d800;
+                color: white;
+                outline: none;
+                border: 1px solid transparent;
+                line-height: 50px;
+                padding-left: 15px;
+                position: relative;
+                width: 350px;
+                margin: 0 auto;
+                border-radius: 25px;
+
+                i {
+                    margin: 0 5px;
+                }
+
+                input {
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    width: 65%;
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        .content-down {
+            padding-top: 20px;
+            height: 50%;
+
+            .options {
+                padding: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                text-align: center;
+
+                .option-item {
+                    padding: 10px;
+                    width: 150px;
+                    text-align: center;
+
+                    .option-item-icon {
+                        font-size: 20px;
+                        background-color: #fff;
+                        border-radius: 50%;
+                        margin: 0 auto;
+                        width: 40px;
+                        height: 40px;
+
+                        i {
+                            color: #45c3d2;
+                            text-shadow: #333;
+                        }
+                    }
+
+                    .option-item-text {
+                        font-size: 17px;
+                        font-weight: 600;
+                        text-shadow: #333;
+                    }
+
+                    .option-item-text:hover {
+                        font-weight: 600;
+                        color: #45c3d2;
+                    }
+                }
+            }
+        }
+    }
+}
