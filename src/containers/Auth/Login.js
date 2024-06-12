@@ -39,15 +39,13 @@ class Login extends Component {
         try {
             let data = await handleLogin(this.state.username, this.state.password);
 
-            console.log('data :', data);
+
             if (data && data.errCode !== 0) {
                 this.setState({
                     errMess: data.message
                 });
             }
             if (data && data.errCode === 0) {
-                console.log('LLLLogin success', data.user);
-            
                 this.props.userLoginSuccess(data.user); // truyền tham số user vào sau khi lấy được user
             }
         } catch (error) {

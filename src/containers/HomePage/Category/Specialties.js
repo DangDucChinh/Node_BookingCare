@@ -2,65 +2,73 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Specialties.scss';
 import HomeHeader from '../../HomePage/HomeHeader';
-import DoctorSchedule from '../../../containers/Patient/Doctor/DoctorSchedule';
-import ProfileDoctor from '../../../containers/Patient/Doctor/ProfileDoctor';
-
-import {  getAllSpecialty } from '../../../services/userSevice';
+import { getAllSpecialty } from '../../../services/userSevice';
 import _ from 'lodash';
 import { LANGUAGES } from '../../../utils';
 import HomeFooter from '../HomeFooter';
+import { Buffer } from 'buffer';
 
 
-class DetailSpecialty extends Component {
+class Specialties extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            arrDoctorId: [],
-            dataDetailSpecialty: {},
-            listProvince: [],
+            dataSpecialty: []
         }
     }
 
     async componentDidMount() {
-        const dataDetailSpecialty_fromDB = await getAllSpecialty();
-        // kq là đối tượng js , property is data
+        let res = await getAllSpecialty();
+        console.log('res special : ', res);
+        if (res && res.errCode === 0) {
+            this.setState({ dataSpecialty: res.data ? res.data : [] });
+        }
+    }
 
-        this.setState({
-            dataDetailSpecialty : dataDetailSpecialty_fromDB
-        });
-
-
-
-
+    handleViewDetailSpecialty = (item) => {
+        if (this.props.history) {
+            this.props.history.push(`/detail-specialty/${item.id}`);
+        }
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.language !== prevProps.language) { }
     }
 
-    handleOnChangeSelect = async (event) => {
-    }
 
     render() {
-        let { dataDetailSpecialty  } = this.state;
+        let { dataSpecialty } = this.state;
         let { language } = this.props;
         return (
             <>
                 <div className='detail-specialty-container container'>
                     <HomeHeader isShowBanner={false}></HomeHeader>
-                    {/* <div className='detail-specialty-body'>
-                        <div className='specialties-header'>Chuyên khoa</div>
-                        <div className='specialties-body'>
-                        {dataDetailSpecialty && !_.isEmpty(dataDetailSpecialty.data) && language === LANGUAGES.VI ?
-                                    <div dangerouslySetInnerHTML={{ __html: dataDetailSpecialty.data. }}>
-                                    </div> : <div dangerouslySetInnerHTML={{ __html: dataDetailSpecialty.descriptionHTMLEnglish }}>
-                                    </div>
-                                }v
-                        </div>
 
-                    </div> */}
+                    <div class="container mt-5">
+                        <div class="row">
+                            {dataSpecialty && dataSpecialty.length > 0
+                                && dataSpecialty.map((item, index) => {
+
+                                    let imageDoctorBase64 = ''; // the basic the indepents of the image element 
+                                    if (item.image) {
+                                        imageDoctorBase64 = new Buffer(item.image, 'base64').toString('binary');
+                                    }
+
+                                    return (
+                                        <div class="col-lg-3 col-md-4 col-sm-6" key={index} onClick={() => this.handleViewDetailSpecialty(item)}>
+                                            <section class="bg-primary text-white p-4 mb-4 section-content">
+                                                <img src={`url(${imageDoctorBase64})`} alt={item.name} class="section-img" />
+                                                <p>{item.name}</p>
+                                            </section>
+                                        </div>
+                                    );
+                                })}
+                            
+                            </div>
+                        </div>
+                    </div>
+
                     <HomeFooter />
-                </div>
             </>
         )
     }
@@ -79,4 +87,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DetailSpecialty);
+export default connect(mapStateToProps, mapDispatchToProps)(Specialties);

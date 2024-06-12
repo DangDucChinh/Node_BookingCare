@@ -1,0 +1,161 @@
+ .dauvao-nhom {
+     margin: 10px 0;
+ }
+
+ .dauvao-nhom.an {
+     display: none;
+ }
+
+ .dauvao-nhap {
+     width: 100%;
+     height: auto;
+     padding: 5px;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+     background: #fff;
+     border: 1px solid #ccc;
+     border-radius: 3px;
+     margin: 0px;
+ }
+
+ @media only screen and (min-width: 700px) {
+     .dauvao-nhap-ngan {
+         width: 50%;
+         display: block;
+     }
+ }
+
+ .dauvao-nhap:focus {
+     border: 1px solid #45c3d2;
+ }
+
+ .dauvao-nhom label {
+     display: inline-block;
+     max-width: 100%;
+     margin-bottom: 5px;
+     font-weight: bold;
+ }
+
+ .dauvao-nhom .o-nhap {
+     padding: 10px;
+     border: 1px solid #ccc;
+     border-radius: 3px;
+     display: table;
+     position: relative;
+     border-collapse: separate;
+     background: #fff;
+ }
+
+ .o-nhap .dauvao-nhap {
+     border: none;
+     width: 100%;
+     outline: none;
+     display: table-cell;
+     background-color: #fff;
+     padding: 0;
+ }
+
+ .o-nhap .dauvao-bt {
+     display: table-cell;
+     width: 1%;
+     color: #666;
+     vertical-align: top;
+     padding: 0 10px 0 0;
+ }
+
+ .dauvao-ghichu,
+ .dauvao-thongbao {
+     color: #666;
+     font-size: 13px;
+     line-height: 1.5;
+ }
+
+ .tichchon {
+     margin-top: 15px;
+     display: block;
+ }
+
+ .dacham {
+     background-color: #eee;
+ }
+
+ .dauvao-nhom.taptrung .o-nhap {
+     border: 1px solid #45c3d2;
+ }
+
+ .dauvao-nhom.taptrung .dauvao-bt {
+     color: #45c3d2;
+ }
+
+ .dauvao-nhom.loi .o-nhap,
+ .dauvao-nhom.taptrung.loi .o-nhap,
+ .dauvao-nhom.loi .dauvao-nhap {
+     border: 1px solid red;
+ }
+
+ .loi .o-nhap .dauvao-nhap {
+     border: none;
+ }
+
+ .dauvao-nhom.loi,
+ .dauvao-nhom.loi .dauvao-ghichu,
+ .dauvao-nhom.loi .dauvao-thongbao {
+     color: red;
+ }
+
+ .dauvao-nhom label {
+     color: #333;
+ }
+
+ .dauvao-nhom label+label {
+     margin-left: 15px;
+ }
+
+ #join_container {
+     max-width: 700px;
+     min-width: 200px;
+     margin: 0px auto;
+     margin-top: 50px;
+     margin-bottom: 100px;
+ }
+
+ #join_container h1 {
+     border-bottom: 1px solid #eee;
+     margin-bottom: 10px;
+     padding-bottom: 15px;
+     font-size: 25px;
+     line-height: 1.3;
+     font-weight: bold;
+     color: #555;
+ }
+
+ .join-info {
+     margin-bottom: 30px;
+     color: #666;
+ }
+
+ @media only screen and (max-width: 700px) {
+     #join_container {
+         margin-top: 0px;
+         margin-bottom: 30px;
+         width: 100%;
+         padding: 20px;
+     }
+ }
+
+ .nut-xanh {
+     background: #ffc419;
+     color: white;
+     border: 1px solid transparent;
+     padding: 0px 10px 0px 10px;
+
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+ }
+
+ .nut-ngang {
+     display: block;
+ }

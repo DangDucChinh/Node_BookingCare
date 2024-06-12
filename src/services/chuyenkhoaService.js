@@ -1,5 +1,8 @@
 import axios from "../axios";
 
+// Cấu hình Axios toàn cục
+// axios.defaults.withCredentials = true;
+
 const getChuyenkhoa_ById_Service = (inputId)=>{
     return axios.get(`/api/get-chuyen-khoa?id=${inputId}`);
 }

@@ -7,12 +7,14 @@ import Header from '../containers/Header/Header';
 import ManageDoctor from '../containers/System/Admin/ManageDoctor';
 import ManageHandbook from '../containers/System/Handbook/ManageHandbook';
 import ManageClinic from '../containers/System/Clinic/ManageClinic';
-import ManageChuyenkhoa from '../containers/System/Chuyenkhoa/ManageChuyenkhoa';
 
 import ManageSpecialty from '../containers/System/Specialty/ManageSpecialty';
 import './System.scss';
 import { Link } from 'react-router-dom';
 import ManageSchedule from '../containers/System/Doctor/ManageSchedule';
+import Background from '../containers/System/MyInfor/Background';
+import MyInfor from '../containers/System/MyInfor/MyInfor';
+
 
 
 
@@ -26,7 +28,7 @@ class System extends Component {
             <>
                 <div className='sidebar'>
                     <div className='sidebar-menu'>
-                        <h2>Bookingcare</h2>
+                        <h2>Bookingcare 1111</h2>
                     </div>
                     <div className='sidebar-links'>
                         <Link to="/system/user-redux" style={{ textDecoration: 'none' }}>
@@ -41,8 +43,9 @@ class System extends Component {
                             <div className='link'><i className="fas fa-book"></i>Quản lí cẩm nang</div></Link>
                         <Link to="/system/manage-clinic" style={{ textDecoration: 'none' }}>
                             <div className='link'><i className="fas fa-book"></i>Quản lí phòng khám</div></Link>
-                        <Link to="/system/manage-chuyen-khoa" style={{ textDecoration: 'none' }}>
-                            <div className='link'><i className="fas fa-book"></i>Quản lí CHUYÊN KHOA</div></Link>
+                        {/* <Link to="/system/manage-chuyen-khoa" style={{ textDecoration: 'none' }}>
+                            <div className='link'><i className="fas fa-book"></i>Quản lí CHUYÊN KHOA</div></Link> */}
+
                     </div>
                 </div>
                 <div className='main'>
@@ -58,7 +61,11 @@ class System extends Component {
                                 <Route path="/system/manage-specialty" component={ManageSpecialty} />
                                 <Route path="/system/manage-handbook" component={ManageHandbook} />
                                 <Route path="/system/manage-clinic" component={ManageClinic} />
-                                <Route path="/system/manage-chuyen-khoa" component={ManageChuyenkhoa} />
+                                {/* <Route path="/system/manage-chuyen-khoa" component={ManageChuyenkhoa} /> */}
+
+                                {/* <Route path="/system/manage-my-infor" component={Background} /> */}
+                                <Route path="/system/manage-my-infor" component={MyInfor} />
+
 
 
                                 {/* manage không trong navbar */}

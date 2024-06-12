@@ -23,8 +23,8 @@ class UserRedux extends Component {
             genderArr: [],
             positionArr: [],
             roleArr: [],
-            previewImageUrl: '',
-            isImagePreviewOpen: false,
+
+            // isImagePreviewOpen: false,
 
             email: '',
             password: '',
@@ -35,7 +35,9 @@ class UserRedux extends Component {
             gender: '',
             position: '',
             role: '',
+
             avatar: '',
+            previewImageUrl: '',
 
             action: '',
             userEditId: ''
@@ -165,7 +167,8 @@ class UserRedux extends Component {
                 roleId: this.state.role,
                 positionId: this.state.position,
                 avatar: this.state.avatar
-            });}
+            });
+        }
 
         if (action === CRUD_ACTIONS.EDIT) {
             // fire redux edit user
@@ -225,48 +228,52 @@ class UserRedux extends Component {
 
         let { email, password, firstName, lastName, phoneNumber, address, gender, position, role, imageBase64, previewImageUrl } = this.state;
 
+
+        // console.log('\ngender : ', this.state.gender);
+        // console.log('\ngender : ', this.state.genderArr);
+
         // dùng để lưu và xử lí state của các input 
         return (
-            <div className='user-redux-container'>
-                <div className='title user-redux-title'>React Redux </div>
-                <div className="user-redux-body">
-                    <div className='container'>
+            <>
+                <div className='user-redux-container container rounded bg-white mb-5'>
+                    <div className='title user-redux-title p-3' style={{ color: 'white', backgroundColor: '#0071ba'}} >React Redux </div>
+                    <div className="user-redux-body p-3" style={{ backgroundColor:'#EEEEEE'}}> 
                         <div className='row'>
-                            <div className='col-12 mt-3'><FormattedMessage id="manage-user.add" /></div>
-                            <div className='col-3'>
+                            <div className='col-md-12 mt-3'><h3><FormattedMessage id="manage-user.add" /></h3></div>
+                            <div className='col-md-3'>
                                 <label><FormattedMessage id="manage-user.email" /></label>
                                 <input className='form-control' type='email' name='email' placeholder='Enter email...' value={email}
                                     onChange={(event) => { this.handleOnchageInput(event, 'email') }}
                                     disabled={this.state.action === CRUD_ACTIONS.EDIT ? true : false} />
                             </div>
-                            <div className='col-3'>
+                            {/* <div className='col-3'>
                                 <label><FormattedMessage id="manage-user.password" /></label>
                                 <input className='form-control' type='password' name='password' placeholder='Enter password...' value={password}
                                     onChange={(event) => this.handleOnchageInput(event, 'password')}
                                     disabled={this.state.action === CRUD_ACTIONS.EDIT ? true : false} />
-                            </div>
-                            <div className='col-3'>
+                            </div> */}
+                            <div className='col-md-3'>
                                 <label><FormattedMessage id="manage-user.first-name" /></label>
                                 <input className='form-control' type='text' name='firstName' placeholder='Enter first name...' value={firstName}
                                     onChange={(event) => { this.handleOnchageInput(event, 'firstName') }} />
                             </div>
-                            <div className='col-3'>
+                            <div className='col-md-3'>
                                 <label><FormattedMessage id="manage-user.last-name" /></label>
                                 <input className='form-control' type='text' name='lastName' placeholder='Enter last name...' value={lastName}
                                     onChange={(event) => { this.handleOnchageInput(event, 'lastName') }}
                                 />
                             </div>
-                            <div className='col-3'>
+                            <div className='col-md-3'>
                                 <label><FormattedMessage id="manage-user.phone-number" /></label>
                                 <input className='form-control' type='text' name='phoneNumber' placeholder='Enter phone number...' value={phoneNumber}
                                     onChange={(event) => { this.handleOnchageInput(event, 'phoneNumber') }} />
                             </div>
-                            <div className='col-9'>
+                            <div className='col-md-12'>
                                 <label><FormattedMessage id="manage-user.address" /></label>
                                 <input className='form-control' type='text' name='address' placeholder='Enter address...' value={address}
                                     onChange={(event) => { this.handleOnchageInput(event, 'address') }} />
                             </div>
-                            <div className='col-3'>
+                            <div className='col-md-3'>
                                 <label><FormattedMessage id="manage-user.position" /></label>
                                 <select className='form-control'
                                     onChange={(event) => { this.handleOnchageInput(event, 'position') }} value={position}>
@@ -280,7 +287,7 @@ class UserRedux extends Component {
                                         })}
                                 </select>
                             </div>
-                            <div className='col-3'>
+                            <div className='col-md-3'>
                                 <label><FormattedMessage id="manage-user.roleid" /></label>
                                 <select className='form-control'
                                     onChange={(event) => { this.handleOnchageInput(event, 'role') }} value={role}>
@@ -292,7 +299,7 @@ class UserRedux extends Component {
                                         })}
                                 </select>
                             </div>
-                            <div className='col-3'>
+                            <div className='col-md-3'>
                                 <label><FormattedMessage id="manage-user.gender" /></label>
                                 <select className='form-control'
                                     onChange={(event) => { this.handleOnchageInput(event, 'gender') }} value={gender}>
@@ -304,28 +311,27 @@ class UserRedux extends Component {
                                         })}
                                 </select>
                             </div>
-                            <div className='col-3'>
-                                <label><FormattedMessage id="manage-user.image" /></label>
-                                <div className='preview-img-container'>
-                                    <input type='file' class="" id="previewImg"
-                                        onChange={(event) => this.handleOnchageImage(event)} hidden />
-                                    <label className='label-upload' htmlFor='previewImg'>Tải ảnh <i className="fas fa-upload"></i></label>
-                                    <div
-                                        onClick={() => this.isOpenPreviewImage()}
-                                        style={{ backgroundImage: `url(${this.state.previewImageUrl})` }}
-                                        className='preview-image'></div>
+                            <div className='col-md-3'>
+                                    <label><FormattedMessage id="manage-user.image" /></label>
+                                    <div className='preview-img-container'>
+                                        <input type='file' class="" id="previewImg"
+                                            onChange={(event) => this.handleOnchageImage(event)} hidden />
+                                        <label className='label-upload' htmlFor='previewImg'>Tải ảnh <i className="fas fa-upload"></i></label>
+                                        <div
+                                            onClick={() => this.isOpenPreviewImage()}
+                                            style={{ backgroundImage: `url(${this.state.previewImageUrl})` }}
+                                            className='preview-image'></div>
+                                    </div>
                                 </div>
-
-                            </div>
-                            <div className='col-12 mt-3'>
-                                <button
+                            <div className='col-md-3 mt-3 text-left'>
+                                <button style={{padding: '0px 10px 0px 10px'}}
                                     className={this.state.action === CRUD_ACTIONS.EDIT ? 'btn btn-warning' : 'btn btn-primary'}
                                     onClick={() => this.handleSaveUser()} >
                                     {this.state.action === CRUD_ACTIONS.EDIT ? <FormattedMessage id="manage-user.edit" /> :
                                         <FormattedMessage id="manage-user.save" />}
                                 </button>
                             </div>
-                            
+
 
                             <div className='col-12 mt-3'>
                                 <TableManageUser handleEditUserFromParentKey={this.handleEditUserFromParent}
@@ -334,13 +340,14 @@ class UserRedux extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
 
-                {this.state.isImagePreviewOpen === true && <Lightbox
+                    {/* {this.state.isImagePreviewOpen === true && <Lightbox
                     mainSrc={this.state.previewImageUrl}
                     onCloseRequest={() => this.setState({ isImagePreviewOpen: false })}
-                />}
-            </div >
+                />} */}
+                </div >
+
+            </ >
         )
     }
 

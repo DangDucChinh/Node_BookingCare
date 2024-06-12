@@ -37,6 +37,7 @@ class UserManage extends Component {
     render() {
         // console.log('checkout user : ', this.state);
         return (
+                
             <>
                 <ModalUser isOpen={this.state.isOpen} isControlModelUser={this.isControlModelUser} />
                 <div className="user-container">

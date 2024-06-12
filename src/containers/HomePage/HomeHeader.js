@@ -16,14 +16,14 @@ class HomeHeader extends Component {
         };
     }
 
-    returnToHome = ()=>{
-        if(this.props.history){
+    returnToHome = () => {
+        if (this.props.history) {
             this.props.history.push(`/home`);
         }
     }
 
-    toMethod_Address = (url_to_address)=>{
-        if(this.props.history){
+    toMethod_Address = (url_to_address) => {
+        if (this.props.history) {
             // this.props.history.push(`${url_to_address}`);
             this.props.history.push(url_to_address);
         }
@@ -33,17 +33,19 @@ class HomeHeader extends Component {
     render() {
         let lang = this.props.language;
         // console.log('Check useer infor : ', this.props.userInfo);
-        let bien = ['/home','/specialty'];
+        const { userInfo }  = this.props;
+
+        let bien = ['/home', '/specialty'];
         return (
             <>
                 <div className="home-header-container">
                     <div className="home-header-content">
                         <div className="left-content">
-                            <i className="fas fa-bars"></i>
-                            <div className="header-logo" onClick={()=>this.returnToHome()}></div>
+                            <i className="fas fa-bars" onClick={() => this.toMethod_Address('/system/user-redux')}></i>
+                            <div className="header-logo" onClick={() => this.returnToHome()}></div>
                         </div>
                         <div className="center-content">
-                            <div className="child-content" onClick={()=>this.toMethod_Address('/specialties')}>
+                            <div className="child-content" onClick={() => this.toMethod_Address('/specialties')}>
                                 <div><b><FormattedMessage id="homeheader.speciality" /></b></div>
                                 <div><FormattedMessage id="homeheader.searchdoctor" /></div>
                             </div>
@@ -60,9 +62,9 @@ class HomeHeader extends Component {
                                 <div><FormattedMessage id="homeheader.check-overview" /></div>
                             </div>
                         </div>
-                        <div className="right-content">
-                            <div className="support">
-                                <i className="fas fa-question-circle"></i>Hỗ trợ
+                        <div className="right-content" >
+                            <div className="support" onClick={() => this.toMethod_Address('/contact-for-work')}>
+                                <i className="fas fa-question-circle" ></i>Liên hệ hợp tác
                             </div>
                             <div className={lang === 'vi' ? "flag-vi active" : "flag-vi"}>
                                 <span className="" onClick={(event) => { this.handleChangeLanguage(LANGUAGES.VI) }}>VI</span>
@@ -175,4 +177,4 @@ Khi gọi hàm action creator changeLanguageApp, bạn sẽ nhận được mộ
     };
 }
 
-export default withRouter( connect(mapStateToProps, mapDispatchToProps)(HomeHeader));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeHeader));

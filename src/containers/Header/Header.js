@@ -8,9 +8,9 @@ import './Header.scss';
 import { LANGUAGES, USER_ROLE } from '../../utils/constant';
 import { changeLanguageApp } from '../../store/actions';
 import { FormattedMessage } from 'react-intl';
-import _ from 'lodash'
+import _ from 'lodash';
+import { Link } from 'react-router-dom';
 
-import { handleLogout } from '../../services/userSevice';
 
 class Header extends Component {
     constructor(props) {
@@ -43,13 +43,22 @@ class Header extends Component {
         // console.log('user infofor :',this.props.userInfo);
     }
 
-    handleClickLogout = async()=>{
+    handleClickLogout = async () => {
         this.props.processLogout();
-        let res = await handleLogout(); 
-        console.log('\n\n:IP',res);
+        // let res = await handleLogout();
+        // console.log('\n\n:IP', res);
     }
 
-    
+
+    handleClick_My_Infor = (url_to_address) => {
+        alert('bing');
+        if (this.props.history) {
+            // this.props.history.push(`${url_to_address}`);
+            this.props.history.push(url_to_address);
+        }
+    }
+
+
 
     render() {
         const { processLogout, language, userInfo } = this.props;
@@ -63,9 +72,13 @@ class Header extends Component {
                 </div>
 
                 <div className='languages'>
-                    <i class="fas fa-user-cog"></i>
-                    <span style={{marginLeft : '8px'}} className='welcome'><FormattedMessage id="homeheader.welcome" />
+                    <Link to="/system/manage-my-infor" style={{ textDecoration: 'none', color : 'white' }}>
+                        {/* onClick={() => this.handleClick_My_Infor('/contact-for-work')} */}
+                    <i class="fas fa-user-cog" ></i>
+                    <span style={{ marginLeft: '8px' }} className='welcome'><FormattedMessage id="homeheader.welcome"/>
                         {userInfo && userInfo.firstName ? userInfo.firstName : ''}!!!</span>
+                    </Link>
+
                     <span className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}
                         onClick={(event) => this.handleChangeLanguage(LANGUAGES.VI)}>VI</span>
                     <span className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'}
@@ -74,13 +87,14 @@ class Header extends Component {
                     {/* <div className="btn btn-logout" onClick={processLogout} title='Logout'>
                         <i className="fas fa-sign-out-alt"></i>
                     </div> */}
-                    <div className="btn btn-logout" onClick={()=>{this.handleClickLogout()}} title='Logout'>
+                    <div className="btn btn-logout" onClick={() => { this.handleClickLogout() }} title='Logout'>
                         <i className="fas fa-sign-out-alt"></i>
                     </div>
                 </div>
 
-
             </div>
+
+
         );
     }
 

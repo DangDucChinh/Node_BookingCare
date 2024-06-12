@@ -49,7 +49,6 @@ class TableManageClinic extends Component {
 
     render() {
         let arrUsers = this.state.usersComponent;
-
         return (
             <>
                 <table id="TableManageUser">
@@ -68,6 +67,7 @@ class TableManageClinic extends Component {
                         let imageBase64 = '';
                         if (item.image) {
                             imageBase64 = new Buffer(item.image, 'base64').toString('binary');
+                            
                         }
                         return (
                             <tr key={index}>
@@ -95,7 +95,7 @@ class TableManageClinic extends Component {
 
                 </table>
 
-                <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} />
+                {/* <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} /> */}
             </>
         );
     }

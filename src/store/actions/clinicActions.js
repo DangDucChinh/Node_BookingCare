@@ -46,6 +46,7 @@ export const getAllClinic_Action = () => {
         try {
             let response = await getClinicService('ALL');
 
+            console.log('trong action:',response); ///
             if (response && response.errCode === 0) {
                 dispatch(getAllClinicSuccess_Action(response.clinics.reverse()));
             } else {

@@ -23,11 +23,16 @@ import { CustomToastCloseButton } from '../components/CustomToast';
 import ConfirmModal from '../components/ConfirmModal';
 import CustomScrollbars from '../components/CustomScrollbars';
 import VerifyEmail from './Patient/VerifyEmail';
+
 import DetailSpecialty from './Patient/Specialty/DetailSpecialty';
 import DetailClinic from './Patient/Clinic/DetailClinic';
 import DetailHandbook from './Patient/Handbook/DetailHandbook';
 
 import Specialties from './HomePage/Category/Specialties';
+
+import Contact from './Header/Contact/Contact';
+import MyInfor from './System/MyInfor/MyInfor';
+
 
 
 
@@ -74,11 +79,16 @@ class App extends Component {
                                     <Route path={path.DETAIL_SPECIALTY} component={DetailSpecialty} />
                                     <Route path={path.DETAIL_HANDBOOK} component={DetailHandbook} />
 
-
                                     <Route path={path.VERIFY_EMAIL_BOOKING} component={VerifyEmail} />
                                     <Route path={path.DETAIL_CLINIC} component={DetailClinic} />
 
                                     <Route path={path.SPECIALTIES} component={Specialties} />
+                                    <Route path={path.CONTACT_FOR_WORK} component={Contact} />
+
+                                    {/* path của admin và bác sĩ */}
+                                    <Route path="/system/manage-my-infor" component={MyInfor} />
+
+
 
                                 </Switch>
                             </CustomScrollbars>

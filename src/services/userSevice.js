@@ -7,7 +7,9 @@ const handleLogin = (userEmail, userPassword) => {
     return axios.post('/api/login', { // đặt tên trùng với tên của đối tượng post (url , {}) trên server
         email: userEmail,
         password: userPassword
-    });
+    }, { withCredentials: true });
+
+
 };
 
 const handleLogout = ()=>{
@@ -120,7 +122,7 @@ const editClinicByIdService = (dataFromInputs)=>{
 }
 
 const getClinicService = (inputId)=>{
-    return axios.get(`/api/get-clinic?id=${inputId}`);
+    return axios.get(`/apiic?id=${inputId}`);
 }
 
 

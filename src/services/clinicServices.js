@@ -5,12 +5,13 @@ const createNewClinicService = (data) => {
 }
 
 const getClinicService = (inputId)=>{
-    return axios.get(`/api/get-clinic?id=${inputId}`);
+    return axios.get(`/api/get-clinic?id=${inputId}` , {withCredentials: true});
+
 }
 
-const getAllDetailClinicByIdService = (data)=>{
-    return axios.get(`/api/get-detail-clinic-by-id?id=${data.id}&location=${data.location}`);
-}
+// const getAllDetailClinicByIdService = (data)=>{
+//     return axios.get(`/api/get-detail-clinic-by-id?id=${data.id}&location=${data.location}`);
+// }
 
 const updateClinicByIdService = (id, userDataFromInput) => {
     return axios.put(`/api/update-clinic-by-id/${id}`, userDataFromInput);
@@ -23,7 +24,8 @@ const deleteClinicByIdService = (id)=>{
 
 
 export {
-    createNewClinicService, getClinicService, getAllDetailClinicByIdService ,
+    createNewClinicService, getClinicService, 
+    // getAllDetailClinicByIdService ,
     updateClinicByIdService,
     deleteClinicByIdService , 
 }

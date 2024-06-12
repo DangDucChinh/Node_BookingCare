@@ -12,6 +12,7 @@ export const path = { // cấu hình đường link cho cả projetc , link trê
 
     DETAIL_HANDBOOK : '/detail-handbook/:id', 
     SPECIALTIES : '/specialties',
+    CONTACT_FOR_WORK : '/contact-for-work', 
 };
 
 export const LANGUAGES = {
